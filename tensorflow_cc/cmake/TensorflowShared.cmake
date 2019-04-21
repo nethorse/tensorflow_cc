@@ -11,8 +11,6 @@ ExternalProject_Add(
   DOWNLOAD_COMMAND ""
   UPDATE_COMMAND ""
   CONFIGURE_COMMAND tensorflow/contrib/makefile/compile_linux_protobuf.sh
-            # patch nsync to use g++-7
-            COMMAND sed -i "s/ g++/ g++-7/g" tensorflow/contrib/makefile/compile_nsync.sh
             COMMAND tensorflow/contrib/makefile/compile_nsync.sh
             COMMAND "${CMAKE_CURRENT_BINARY_DIR}/build_tensorflow.sh"
             COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/cmake/copy_links.sh" .
